@@ -11,6 +11,7 @@ ABIDE is a comprehensive system that provides an automated browser-based IDE wit
 ## Components
 
 ### Frontend App (`packages/app`)
+
 - Browser-based IDE interface
 - Real-time WebSocket connection to server
 - Visual cursor control and element selection
@@ -18,6 +19,7 @@ ABIDE is a comprehensive system that provides an automated browser-based IDE wit
 - Layout management
 
 ### Server (`packages/server`)
+
 - WebSocket server for real-time communication
 - Browser automation state management
 - IDE state synchronization
@@ -25,6 +27,7 @@ ABIDE is a comprehensive system that provides an automated browser-based IDE wit
 - Event broadcasting
 
 ### MCP Server (`packages/mcp-server`)
+
 - Model Context Protocol implementation
 - LLM-friendly API for state queries
 - Method execution interface

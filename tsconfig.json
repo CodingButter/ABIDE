@@ -21,7 +21,9 @@
   },
   "references": [
     { "path": "./packages/app" },
+    { "path": "./packages/client" },
     { "path": "./packages/server" },
     { "path": "./packages/mcp-server" }
-  ]
+  ],
+  "exclude": ["**/*.d.ts", "**/dist/**", "**/node_modules/**"]
 }
