@@ -1,73 +1,111 @@
-# ABIDE - Automated Browser IDE
+# ABIDE - Automated Basic IDE
 
-ABIDE is a comprehensive system that provides an automated browser-based IDE with LLM integration capabilities. It consists of three main components working together to enable intelligent browser automation and IDE functionality.
+ABIDE is a Tauri-based desktop IDE with integrated LLM support through the Model Context Protocol (MCP). It provides a lightweight code editing environment with a virtual file system, Monaco Editor integration, and WebSocket-based LLM communication.
 
-## Architecture
+## Features
 
-- **App (Frontend)**: React-based web application providing the browser IDE interface
-- **Server**: WebSocket server managing browser automation state and IDE operations
-- **MCP Server**: Model Context Protocol server enabling LLM integration for intelligent automation
+- 🚀 **Tauri v2 Desktop Application** - Native performance with web technologies
+- 📝 **Monaco Editor** - VS Code's editor for a familiar coding experience
+- 🗂️ **Virtual File System** - Sandboxed file operations for security
+- 🤖 **MCP Integration** - WebSocket-based LLM communication protocol
+- ⚛️ **React 18.3** - Modern React with TypeScript
+- 🎨 **Tailwind CSS v4** - Next-generation utility-first CSS
+- 🦀 **Rust Backend** - Fast and memory-safe backend with Axum
 
-## Components
+## Prerequisites
 
-### Frontend App (`packages/app`)
+- Node.js 18+ and npm
+- Rust and Cargo (install from https://rustup.rs/)
+- System dependencies (Ubuntu/Debian):
+  ```bash
+  sudo apt update
+  sudo apt install -y \
+    libwebkit2gtk-4.1-dev \
+    libjavascriptcoregtk-4.1-dev \
+    libsoup-3.0-dev \
+    build-essential \
+    curl \
+    wget \
+    file \
+    libssl-dev \
+    libgtk-3-dev \
+    libayatana-appindicator3-dev \
+    librsvg2-dev
+  ```
 
-- Browser-based IDE interface
-- Real-time WebSocket connection to server
-- Visual cursor control and element selection
-- Code editor integration
-- Layout management
+## Installation
 
-### Server (`packages/server`)
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd packages/ABIDE
+   ```
 
-- WebSocket server for real-time communication
-- Browser automation state management
-- IDE state synchronization
-- Action execution engine
-- Event broadcasting
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-### MCP Server (`packages/mcp-server`)
-
-- Model Context Protocol implementation
-- LLM-friendly API for state queries
-- Method execution interface
-- Real-time state updates
-- Integration with the main server via WebSocket
-
-## Getting Started
-
-```bash
-# Install dependencies
-npm install
-
-# Run all services in development mode
-npm run dev
-
-# Build all packages
-npm run build
-```
+3. Ensure Rust is properly installed:
+   ```bash
+   rustc --version
+   cargo --version
+   ```
 
 ## Development
 
-This is a mono-repo using npm workspaces. Each package can be developed independently:
+To start the development server with hot-reload:
 
 ```bash
-# Run specific package
-npm run dev -w @abide/app
-npm run dev -w @abide/server
-npm run dev -w @abide/mcp-server
+npm run dev
 ```
 
-## Features (Planned)
+This will:
+- Start the Vite dev server for the frontend
+- Build and run the Tauri application
+- Launch the API server on port 3030
+- Open the ABIDE desktop window
 
-- **Browser Automation**: Control browser elements, navigate, and interact
-- **IDE Integration**: Code editing with syntax highlighting and auto-completion
-- **LLM Control**: AI-powered automation through MCP protocol
-- **Real-time Sync**: WebSocket-based state synchronization
-- **Layout Management**: Customizable IDE layouts and panels
-- **Action Recording**: Record and replay browser interactions
-- **State Inspection**: Debug and inspect browser and IDE state
+### Other Commands
+
+- `npm run dev:frontend` - Run only the frontend development server
+- `npm run build` - Build the production application
+- `npm run lint` - Run ESLint
+- `npm run typecheck` - Run TypeScript type checking
+- `npm run tauri:build` - Build the Tauri application for distribution
+
+## Architecture
+
+The application consists of:
+
+- **Frontend** (`src/`): React application with TypeScript
+  - `components/`: UI components (Editor, FileExplorer, PreviewPanel)
+  - `store/`: Zustand state management
+  - `api/`: API client for backend communication
+  
+- **Backend** (`src-tauri/`): Rust application
+  - `api/`: HTTP API server with WebSocket support
+  - `commands/`: Tauri command handlers
+  - `state/`: Application state and VFS implementation
+  - `utils/`: Utility functions
+
+## API Endpoints
+
+The backend API server runs on `http://localhost:3030` with the following endpoints:
+
+- `GET /health` - Health check
+- `GET /mcp` - WebSocket endpoint for MCP
+- `POST /api/files` - Create file
+- `GET /api/files/:id` - Read file
+- `POST /api/files/:id` - Update file
+- `DELETE /api/files/:id` - Delete file
+- `POST /api/directories` - Create directory
+- `GET /api/directories/*path` - List directory
+- `GET /api/project` - Get project info
+- `POST /api/project` - Save project
+- `GET /api/settings` - Get settings
+- `POST /api/settings` - Update settings
 
 ## License
 
-MIT
+[License information here]

@@ -1,0 +1,285 @@
+/**
+ * Tailwind CSS v4 setup
+ * 
+ * In Tailwind v4, we import CSS directly and use CSS-based configuration
+ */
+@import "tailwindcss";
+
+/**
+ * Global CSS variables for ABIDE theme
+ */
+:root {
+  /* Typography */
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Force dark mode */
+  color-scheme: dark;
+  
+  /* ABIDE Dark Theme Colors */
+  --color-bg-primary: #0d1117;
+  --color-bg-secondary: #161b22;
+  --color-bg-tertiary: #1c2128;
+  --color-bg-hover: #262c36;
+  --color-bg-active: #2d333b;
+  
+  /* Surface colors */
+  --color-surface: #161b22;
+  --color-surface-hover: #1c2128;
+  --color-surface-active: #262c36;
+  
+  /* Border colors */
+  --color-border: #30363d;
+  --color-border-muted: #21262d;
+  --color-border-subtle: #1b1f24;
+  
+  /* Text colors */
+  --color-text: #e6edf3;
+  --color-text-secondary: #8b949e;
+  --color-text-tertiary: #6e7681;
+  --color-text-placeholder: #484f58;
+  
+  /* Accent colors */
+  --color-accent-primary: #2f81f7;
+  --color-accent-secondary: #58a6ff;
+  --color-accent-success: #3fb950;
+  --color-accent-warning: #d29922;
+  --color-accent-danger: #f85149;
+  --color-accent-info: #58a6ff;
+  
+  /* Syntax highlighting colors */
+  --color-syntax-keyword: #ff7b72;
+  --color-syntax-function: #d2a8ff;
+  --color-syntax-variable: #79c0ff;
+  --color-syntax-string: #a5d6ff;
+  --color-syntax-comment: #8b949e;
+  --color-syntax-constant: #ffa657;
+  
+  /* Scrollbar styling */
+  --scrollbar-width: 12px;
+  --scrollbar-track: var(--color-bg-secondary);
+  --scrollbar-thumb: var(--color-border);
+  --scrollbar-thumb-hover: var(--color-border-muted);
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  
+  /* Font rendering */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* Body styling */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text);
+  font-size: 14px;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Button styling */
+button {
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  padding: 0.5em 1em;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+button:hover {
+  background-color: var(--color-surface-hover);
+  border-color: var(--color-accent-primary);
+}
+
+button:active {
+  background-color: var(--color-surface-active);
+  transform: scale(0.98);
+}
+
+button:focus {
+  outline: 2px solid var(--color-accent-primary);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Input styling */
+input, textarea {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.5em 0.75em;
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 0 0 3px rgba(47, 129, 247, 0.1);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+/* Selection colors */
+::selection {
+  background-color: var(--color-accent-primary);
+  color: white;
+}
+
+/* Utility classes */
+.glass {
+  background: rgba(22, 27, 34, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glow {
+  box-shadow: 0 0 20px rgba(47, 129, 247, 0.15);
+}
+
+.divider-x {
+  border-right: 1px solid var(--color-border);
+}
+
+.divider-y {
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Monaco Editor overrides */
+.monaco-editor {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace !important;
+}
+
+.monaco-editor .margin {
+  background-color: var(--color-bg-secondary) !important;
+}
+
+.monaco-editor .monaco-scrollable-element > .scrollbar > .slider {
+  background: var(--color-border) !important;
+}
+
+.monaco-editor .monaco-scrollable-element > .scrollbar > .slider:hover {
+  background: var(--color-border-muted) !important;
+}
+
+/**
+ * Tailwind v4 Theme Configuration
+ * Using CSS-based configuration instead of JS config file
+ */
+@theme {
+  /* Custom colors */
+  --color-bg-primary: #0d1117;
+  --color-bg-secondary: #161b22;
+  --color-bg-tertiary: #1c2128;
+  --color-surface: #161b22;
+  --color-border: #30363d;
+  --color-text-primary: #e6edf3;
+  --color-text-secondary: #8b949e;
+  --color-accent: #2f81f7;
+  
+  /* Typography scale */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  
+  /* Spacing scale */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+}

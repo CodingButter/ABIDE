@@ -1,0 +1,338 @@
+/* Preview Panel Styles */
+
+.preview-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-secondary);
+}
+
+/* Preview Header */
+.preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg-tertiary);
+  flex-shrink: 0;
+  min-height: 40px;
+}
+
+.preview-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  user-select: none;
+}
+
+.preview-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.control-btn {
+  padding: 0.25rem;
+  background-color: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+}
+
+.control-btn:hover {
+  background-color: var(--color-bg-hover);
+  color: var(--color-text);
+}
+
+.control-btn.active {
+  color: var(--color-accent-primary);
+}
+
+.control-btn.active:hover {
+  background-color: var(--color-bg-hover);
+}
+
+.control-btn svg {
+  transition: transform 0.2s ease;
+}
+
+.control-btn.active svg {
+  animation: spin 2s linear infinite;
+}
+
+.refresh-icon {
+  width: 14px;
+  height: 14px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Preview Content */
+.preview-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.preview-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: white;
+}
+
+.no-preview {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: var(--color-text-secondary);
+}
+
+.no-preview p:first-child {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.no-preview .text-sm {
+  font-size: 0.875rem;
+}
+
+.no-preview .opacity-60 {
+  opacity: 0.6;
+}
+
+/* HTML Preview */
+.html-preview {
+  background-color: white;
+  color: #213547;
+  border-radius: 4px;
+  padding: 1rem;
+  min-height: 100%;
+  box-shadow: var(--shadow-md);
+}
+
+.html-preview iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 4px;
+}
+
+/* Markdown Preview */
+.markdown-preview {
+  color: var(--color-text);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.markdown-preview h1,
+.markdown-preview h2,
+.markdown-preview h3,
+.markdown-preview h4,
+.markdown-preview h5,
+.markdown-preview h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: var(--color-text);
+}
+
+.markdown-preview h1 {
+  font-size: 2rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.3em;
+}
+
+.markdown-preview h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.3em;
+}
+
+.markdown-preview h3 {
+  font-size: 1.25rem;
+}
+
+.markdown-preview p {
+  margin-bottom: 1em;
+}
+
+.markdown-preview code {
+  background-color: var(--color-bg-tertiary);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.875em;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+}
+
+.markdown-preview pre {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 1em;
+  overflow-x: auto;
+  margin-bottom: 1em;
+}
+
+.markdown-preview pre code {
+  background-color: transparent;
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+.markdown-preview blockquote {
+  border-left: 4px solid var(--color-accent-primary);
+  padding-left: 1em;
+  margin-left: 0;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.markdown-preview a {
+  color: var(--color-accent-primary);
+  text-decoration: none;
+}
+
+.markdown-preview a:hover {
+  text-decoration: underline;
+}
+
+.markdown-preview ul,
+.markdown-preview ol {
+  padding-left: 2em;
+  margin-bottom: 1em;
+}
+
+.markdown-preview li {
+  margin-bottom: 0.25em;
+}
+
+.markdown-preview table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.markdown-preview th,
+.markdown-preview td {
+  border: 1px solid var(--color-border);
+  padding: 0.5em 1em;
+}
+
+.markdown-preview th {
+  background-color: var(--color-bg-tertiary);
+  font-weight: 600;
+}
+
+.markdown-preview img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* JSON Preview */
+.json-preview {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.json-key {
+  color: var(--color-syntax-variable);
+}
+
+.json-string {
+  color: var(--color-syntax-string);
+}
+
+.json-number {
+  color: var(--color-syntax-constant);
+}
+
+.json-boolean {
+  color: var(--color-syntax-keyword);
+}
+
+.json-null {
+  color: var(--color-syntax-comment);
+}
+
+/* Raw Preview */
+.raw-preview {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Preview Disabled State */
+.preview-disabled {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-secondary);
+}
+
+.enable-preview-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  background-color: var(--color-accent-primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.enable-preview-btn:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Preview Error */
+.preview-error {
+  color: var(--color-accent-danger);
+  background-color: var(--color-bg-tertiary);
+  border: 1px solid var(--color-accent-danger);
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.preview-error h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.preview-error pre {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  font-size: 0.8125rem;
+  margin: 0;
+  white-space: pre-wrap;
+}

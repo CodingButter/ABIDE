@@ -1,0 +1,367 @@
+/* Animation Demo Page Styles */
+
+.animation-demo {
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text);
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+/* Header */
+.demo-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+/* Back Button */
+.back-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: var(--color-bg-hover);
+  border-color: var(--color-accent-primary);
+  color: var(--color-accent-primary);
+  transform: translateX(-4px);
+}
+
+.back-button svg {
+  transition: transform 0.3s ease;
+}
+
+.back-button:hover svg {
+  transform: translateX(-4px);
+}
+
+.demo-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-success));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.inline-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.5rem;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+}
+
+/* Sections */
+.demo-sections {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.demo-section {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.demo-section h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-icon {
+  color: var(--color-accent-primary);
+}
+
+/* Controls */
+.controls {
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.control-button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-button:hover {
+  background-color: var(--color-bg-hover);
+  border-color: var(--color-accent-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.control-button.active {
+  background-color: var(--color-accent-primary);
+  color: white;
+  border-color: var(--color-accent-primary);
+}
+
+/* Color Picker */
+.color-picker {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.color-picker label {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.color-options {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.color-option {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+  border-color: var(--color-text);
+}
+
+.color-option.primary {
+  background-color: var(--color-accent-primary);
+}
+
+.color-option.success {
+  background-color: var(--color-accent-success);
+}
+
+.color-option.danger {
+  background-color: var(--color-accent-danger);
+}
+
+.color-option.warning {
+  background-color: var(--color-accent-warning);
+}
+
+/* Feature List */
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.feature {
+  padding: 1rem;
+  background-color: var(--color-bg-tertiary);
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  font-size: 0.95rem;
+}
+
+/* Speed Control */
+.speed-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.speed-control label {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.speed-control input[type="range"] {
+  width: 200px;
+  height: 6px;
+  border-radius: 3px;
+  background-color: var(--color-bg-tertiary);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.speed-control input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--color-accent-primary);
+  cursor: pointer;
+}
+
+/* Typing Demos */
+.typing-demos {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.typing-demo-item h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.demo-content {
+  padding: 1.5rem;
+  background-color: var(--color-bg-tertiary);
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  font-size: 1.1rem;
+  min-height: 80px;
+}
+
+.demo-content.code-block {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  white-space: pre;
+}
+
+/* Terminal Window */
+.terminal-window {
+  margin-top: 1.5rem;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.terminal-header {
+  background-color: #2d2d2d;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.terminal-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.terminal-controls .control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.control.red {
+  background-color: #ff5f56;
+}
+
+.control.yellow {
+  background-color: #ffbd2e;
+}
+
+.control.green {
+  background-color: #27c93f;
+}
+
+.terminal-title {
+  font-size: 0.875rem;
+  color: #999;
+  font-family: 'SF Mono', monospace;
+}
+
+.terminal-body {
+  padding: 1.5rem;
+  min-height: 200px;
+  background-color: #000;
+}
+
+/* Combined Demo */
+.combined-demo {
+  text-align: center;
+  padding: 2rem;
+}
+
+.combined-demo p {
+  margin-bottom: 2rem;
+  color: var(--color-text-secondary);
+}
+
+.big-typing {
+  font-size: 2rem;
+  font-weight: 600;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.big-typing .typing-animation {
+  background: linear-gradient(90deg, var(--color-accent-primary), var(--color-accent-success));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animations */
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .demo-header h1 {
+    font-size: 2rem;
+  }
+  
+  .demo-sections {
+    padding: 0 1rem;
+  }
+  
+  .demo-section {
+    padding: 1.5rem;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .big-typing {
+    font-size: 1.5rem;
+  }
+}
